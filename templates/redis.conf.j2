@@ -20,6 +20,7 @@ syslog-ident {{ redis_syslog_ident }}
 syslog-facility {{ redis_syslog_facility }}
 databases {{ redis_databases }}
 
+{% if redis_snapshot %}
 # Snapshotting
 {% for save in redis_save -%}
 save {{ save }}
@@ -28,6 +29,7 @@ stop-writes-on-bgsave-error {{ redis_stop_writes_on_bgsave_error|string }}
 rdbcompression {{ redis_rdbcompression|string }}
 rdbchecksum {{ redis_rdbchecksum|string }}
 dbfilename {{ redis_db_filename|string }}
+{% endif %}
 
 # Replication
 {% if redis_slaveof -%}

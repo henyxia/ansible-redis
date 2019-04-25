@@ -79,6 +79,8 @@ redis_rename_commands: []
 # Lua script time limit
 redis_lua_time_limit: 5000
 
+# Snapshot configuration
+redis_snapshot: true
 # the file name for the RDB Backup
 redis_db_filename: "dump.rdb"
 
